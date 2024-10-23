@@ -15,7 +15,7 @@
 
 <div class="container">
     <div class="d-flex align-items-start" style="font-weight: bold; font-size: 30px; color: rgba(0, 0, 0, 0.527);">
-        <div class="mx-auto">Balance:</div>
+        <div class="mx-auto">Total Amount to pay:</div>
         <div class="mx-auto">₱@Total.ToString("F2")</div>
     </div>
 
@@ -59,8 +59,8 @@
     </div>
 
     <div class="container mt-3 d-flex justify-content-center">
-        <div class="border border-danger border-5 rounded p-4 mx-2 text-center"
-             style="background-color: #fff; box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);">
+        <div class="rounded p-4 mx-2 text-center"
+             style="background-color: #fff; box-shadow: 10px 10px 5px pink;">
             <h3 style="color: rgba(0, 0, 0, 0.527);">Please insert your payment</h3>
             <h1>Total amount inserted <br> ₱ @AmountInserted.ToString("F2") </h1>
         </div>
@@ -78,6 +78,17 @@
         </div>
     </div>
 </div>
+
+<div class="payment-machine mb-3">
+    <h5 class="text-center mb-3">Payment Machine</h5>
+    <div class="money-slot"></div>
+    <div id="paymentDisplay" class="display mb-2 text-center">₱ 0.00</div>
+    <div class="d-flex justify-content-center">
+        <button id="insertCashBtn" class="btn btn-sm btn-outline-secondary"><i class="fas fa-money-bill-wave"></i> Insert Cash</button>
+        <button id="insertCardBtn" class="btn btn-sm btn-outline-secondary"><i class="fas fa-credit-card"></i> Insert Card</button>
+    </div>
+</div>
+
 
         
 
@@ -185,12 +196,10 @@
         StateHasChanged();
 
         await JSRuntime.InvokeVoidAsync("alert", "Receipt printed successfully!");
-        // In a real application, you would navigate to a thank you page or perform other actions
     }
 
     private void NavigateBack()
     {
-        // Implement navigation logic here
     }
 
     private class Bill
