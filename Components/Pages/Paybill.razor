@@ -1,0 +1,205 @@
+﻿@page "/Paybill"
+
+@inject IJSRuntime JSRuntime
+
+<header class="d-flex align-items-center justify-content-center">
+    <div class="text-center bg-opacity-100 d-flex align-items-center mb-5">
+        <img src="/assets/logo.png" alt="Zameco Logo" class="me-3"
+             style="width: 60px; height: auto; margin-top: 40px;">
+        <div>
+            <h1 class="mt-5" style="font-size: 25px; color: #DC0000">Z A M E C O II</h1>
+            <p style="color: #DC0000; font-size: 8px;">ZAMBALES II ELECTRIC COOPERATIVE, INC.</p>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="d-flex align-items-start" style="font-weight: bold; font-size: 30px; color: rgba(0, 0, 0, 0.527);">
+        <div class="mx-auto">Balance:</div>
+        <div class="mx-auto">₱@Total.ToString("F2")</div>
+    </div>
+
+    <div class="container mt-2 mb-5">
+        <div class="d-flex align-items-start">
+            <div class="mx-auto">
+                <h2>Bill Payment Selection</h2>
+                <div class="dropdown">
+                    <button class="btn btn-primary btn-lg dropdown-toggle" @onclick="ToggleDropdown" style="font-size: 25px;">
+                        Select Bills to Pay
+                    </button>
+                    @if (isDropdownOpen)
+                    {
+                        <ul class="dropdown-menu show" style="font-size: 20px;">
+                            @foreach (var bill in Bills)
+                            {
+                                <li>
+                                    <label class="dropdown-item">
+                                        <input class="form-check-input me-2" type="checkbox" @bind="bill.IsSelected" @onclick="() => UpdateTotal()">
+                                        @bill.Date.ToString("MM/dd/yyyy") - @bill.Amount.ToString("F2")
+                                    </label>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+            <div class="mx-auto">
+                <h2>Selected Bills:</h2>
+                <ul class="list-group">
+                    @foreach (var bill in Bills.Where(b => b.IsSelected))
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            @bill.Date.ToString("MM/dd/yyyy")
+                            <span class="badge bg-primary rounded-pill">₱@bill.Amount.ToString("F2")</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3 d-flex justify-content-center">
+        <div class="border border-danger border-5 rounded p-4 mx-2 text-center"
+             style="background-color: #fff; box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);">
+            <h3 style="color: rgba(0, 0, 0, 0.527);">Please insert your payment</h3>
+            <h1>Total amount inserted <br> ₱ @AmountInserted.ToString("F2") </h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-between" style="margin-top: 20px;">
+        <div class="col-auto">
+            <button type="button" class="btn btn-dark" style="font-size: 20px;" @onclick="NavigateBack">Back</button>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-outline-success" style="font-size: 20px;"
+                    disabled="@(!HasSelectedBills)" @onclick="ProcessPayment">
+                Proceed
+            </button>
+        </div>
+    </div>
+</div>
+
+        
+
+
+<!-- Loading Modal -->
+@if (isLoading)
+{
+    <div class="modal fade" id="loadingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="loadingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="spinner-border text-primary" role="status">
+                    </div>
+                    <p class="mt-3">Please wait while we process your request.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- error Modal -->
+@if (showErrorModal)
+{
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorModalLabel">Error</h5>
+                </div>
+                <div class="modal-body">
+                    <p id="errorMessage">An error occurred.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+@code {
+    private bool showLoadingModal = false;
+    private bool showErrorModal = false;
+    private List<Bill> Bills { get; set; } = new List<Bill>();
+    private decimal Total { get; set; } = 0;
+    private decimal AmountInserted { get; set; } = 0;
+    private bool isDropdownOpen { get; set; } = false;
+    private bool isLoading { get; set; } = false;
+    private bool showReceipt { get; set; } = false;
+    private bool HasSelectedBills => Bills.Any(b => b.IsSelected);
+
+    protected override void OnInitialized()
+    {
+        // Initialize with sample bills
+        Bills.Add(new Bill { Date = DateTime.Now.AddDays(-30), Amount = 1325.00m });
+        Bills.Add(new Bill { Date = DateTime.Now, Amount = 1455.00m });
+    }
+    private void ToggleDropdown()
+    {
+        isDropdownOpen = !isDropdownOpen;
+    }
+
+    private void UpdateTotal()
+    {
+        Total = Bills.Where(b => b.IsSelected).Sum(b => b.Amount);
+        StateHasChanged();
+    }
+    private async Task ProcessPayment()
+    {
+        isLoading = true;
+        StateHasChanged();
+
+        //delay
+        await Task.Delay(2000); 
+
+        isLoading = false;
+        showReceipt = true;
+        StateHasChanged();
+    }
+
+    private void CloseReceipt()
+    {
+        showReceipt = false;
+        foreach (var bill in Bills)
+        {
+            bill.IsSelected = false;
+        }
+        UpdateTotal();
+    }
+
+    private async Task PrintReceipt()
+    {
+        showReceipt = false;
+        isLoading = true;
+        StateHasChanged();
+
+        await Task.Delay(2000); // Simulate printing time
+
+        isLoading = false;
+        StateHasChanged();
+
+        await JSRuntime.InvokeVoidAsync("alert", "Receipt printed successfully!");
+        // In a real application, you would navigate to a thank you page or perform other actions
+    }
+
+    private void NavigateBack()
+    {
+        // Implement navigation logic here
+    }
+
+    private class Bill
+    {
+        public DateTime Date { get; set; }
+        public decimal Amount { get; set; }
+        public bool IsSelected { get; set; }
+    }
+}
+    
+
+
