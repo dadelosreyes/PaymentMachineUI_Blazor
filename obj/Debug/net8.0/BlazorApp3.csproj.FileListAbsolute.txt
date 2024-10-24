@@ -39,3 +39,4 @@ C:\Users\d_reyes\source\repos\BlazorApp3\bin\Debug\net8.0\Microsoft.Extensions.L
 C:\Users\d_reyes\source\repos\BlazorApp3\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\d_reyes\source\repos\BlazorApp3\bin\Debug\net8.0\Microsoft.JSInterop.dll
 C:\Users\d_reyes\source\repos\BlazorApp3\obj\Debug\net8.0\BlazorApp3.csproj.Up2Date
+C:\Users\d_reyes\source\repos\BlazorApp3\obj\Debug\net8.0\BlazorApp3.sourcelink.json

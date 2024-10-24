@@ -24,40 +24,40 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="col-sm-auto">
                 <div class="align-items-center">
-                    <h2 class="text-center text-danger m-5">Enter Account Number</h2>
+                    <h2 class="text-center text-danger m-5">Enter Account Number</h2>   
                     <div class="">
-                        <input type="text" class="form-control border-light shadow" @bind="accountNumber" readonly>
+                        <input type="text" class="form-control border-light shadow text-center fw-bold fs-1" @bind="accountNumber" readonly>
                     </div>
-                    <div class="btn-group-vertical mt-3 d-flex justify-content-center" role="group"
+                    <div class="btn-group-vertical mt-3 d-flex justify-content-center fs-2" role="group"
                          aria-label="Numpad">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-light btn-outline- col-3 p-3 m-1 rounded shadow"
+                            <button type="button" class="btn btn-light btn-outline- col-3 fs-3 m-1 rounded shadow"
                                     @onclick="() => AppendNumber(1)">1</button>
-                            <button type="button" class="btn btn-light btn-outline- col-3 p-3 m-1 rounded shadow"
+                            <button type="button" class="btn btn-light btn-outline- col-3 fs-3 m-1 rounded shadow"
                                     @onclick="() => AppendNumber(2)">2</button>
-                            <button type="button" class="btn btn-light btn-outline- col-3 p-3 m-1 rounded shadow"
+                            <button type="button" class="btn btn-light btn-outline- col-3 fs-3 m-1 rounded shadow"
                                     @onclick="() => AppendNumber(3)">3</button>
                         </div>
                         <div class="btn-group">
-                            <button type="button" class="btn btn-light btn-outline- col-3 p-3 m-1 rounded shadow"
+                            <button type="button" class="btn btn-light btn-outline- col-3 fs-3 m-1 rounded shadow"
                                     @onclick="() => AppendNumber(4)">4</button>
-                            <button type="button" class="btn btn-light btn-outline- col-3 p-3 m-1 rounded shadow"
+                            <button type="button" class="btn btn-light btn-outline- col-3 fs-3 m-1 rounded shadow"
                                     @onclick="() => AppendNumber(5)">5</button>
-                            <button type="button" class="btn btn-light btn-outline- col-3 p-3 m-1 rounded shadow"
+                            <button type="button" class="btn btn-light btn-outline- col-3 fs-3 m-1 rounded shadow"
                                     @onclick="() => AppendNumber(6)">6</button>
                         </div>
                         <div class="btn-group">
-                            <button type="button" class="btn btn-light btn-outline- col-3 p-3 m-1 rounded shadow"
+                            <button type="button" class="btn btn-light btn-outline- col-3 fs-3 m-1 rounded shadow"
                                     @onclick="() => AppendNumber(7)">7</button>
-                            <button type="button" class="btn btn-light btn-outline- col-3 p-3 m-1 rounded shadow"
+                            <button type="button" class="btn btn-light btn-outline- col-3 fs-3 m-1 rounded shadow"
                                     @onclick="() => AppendNumber(8)">8</button>
-                            <button type="button" class="btn btn-light btn-outline- col-3 p-3 m-1 rounded shadow"
+                            <button type="button" class="btn btn-light btn-outline- col-3 fs-3 m-1 rounded shadow"
                                     @onclick="() => AppendNumber(9)">9</button>
                         </div>
                      
                         <div class="btn-group">
-                            <button type="button" class="disable btn btn-light btn-outline- col-3 p-3 m-1 " style="visibility: hidden"></button>
-                            <button type="button" class="btn btn-light btn-outline- col-3 p-3 m-1 rounded shadow"
+                            <button type="button" class="disable btn btn-light btn-outline- col-3 fs-3 m-1 " style="visibility: hidden"></button>
+                            <button type="button" class="btn btn-light btn-outline- col-3 fs-3 m-1 rounded shadow"
                                     @onclick="() => AppendNumber(0)">0</button>
                             <button type="button" class="btn btn-light btn-outline- col-3 p-3 m-1 rounded shadow"
                                     @onclick="Backspace">
@@ -70,10 +70,8 @@
                     </div>
 
                     <div class="container d-flex flex-row justify-content-center">
-                        <button @onclick="NavigateToIndex"
-                                class="btn btn-dark shadow w-100 m-3 p-3">Back</button>
-                        <button type="button" @onclick="Proceed"
-                                class="btn btn-light shadow w-100 m-3 p-3">Proceed</button>
+                        <button @onclick="NavigateToIndex" class="btn btn-dark shadow w-100 m-3 fs-3">Back</button>
+                        <button type="button" @onclick="Proceed" class="btn btn-light shadow w-100 m-3 fs-3">Proceed</button>
                     </div>
                 </div>
             </div>
@@ -112,7 +110,7 @@
 }
 
 @code {
-    private string accountNumber = "";
+    private string accountNumber = "";                            
     private List<string> validAccountNumbers = new List<string> { "12345", "67890" };
     private bool showLoadingModal = false;
     private bool showInvalidUserModal = false;
@@ -147,9 +145,9 @@
             showLoadingModal = true;
             await Task.Delay(3000); // Simulate loading for 3 seconds
             showLoadingModal = false;
-            NavigationManager.NavigateTo($"/menu?accountNumber={accountNumber}");
+            NavigationManager.NavigateTo($"/paybill?accountNumber={accountNumber}");
         }
-    }
+    } 
 
     private void CloseInvalidUserModal()
     {

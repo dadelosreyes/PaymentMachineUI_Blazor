@@ -1,5 +1,6 @@
 ﻿@page "/Paybill"
-
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
 @inject IJSRuntime JSRuntime
 
 <header class="d-flex align-items-center justify-content-center">
@@ -15,26 +16,27 @@
 
 <div class="container">
     <div class="d-flex align-items-start" style="font-weight: bold; font-size: 30px; color: rgba(0, 0, 0, 0.527);">
-        <div class="mx-auto">Total Amount to pay:</div>
-        <div class="mx-auto">₱@Total.ToString("F2")</div>
+        <div class="">Total Amount to pay:</div>
+        <div class="align-items-center">₱@Total.ToString("F2")</div>
     </div>
 
-    <div class="container mt-2 mb-5">
-        <div class="d-flex align-items-start">
-            <div class="mx-auto">
-                <h2>Bill Payment Selection</h2>
+    <div class="container">
+        <div class="align-items-start justify-content-between">
+            <div class="">
+                <h5>Bill Payment Selection</h5>
                 <div class="dropdown">
-                    <button class="btn btn-primary btn-lg dropdown-toggle" @onclick="ToggleDropdown" style="font-size: 25px;">
+                    <button class=" btn btn-outline-secondary dropdown-toggle w-100 d-flex align-items-center m-3" @onclick="ToggleDropdown" style="font-size: 15px;">
                         Select Bills to Pay
                     </button>
                     @if (isDropdownOpen)
                     {
-                        <ul class="dropdown-menu show" style="font-size: 20px;">
+                        <ul class="dropdown-menu show text-center w-100" style="font-size: 20px;">
                             @foreach (var bill in Bills)
                             {
                                 <li>
                                     <label class="dropdown-item">
-                                        <input class="form-check-input me-2" type="checkbox" @bind="bill.IsSelected" @onclick="() => UpdateTotal()">
+                                        <input class="form-check-input me-2" type="checkbox" checked="@bill.IsSelected" @onchange="async (e) => await OnBillSelectionChanged(bill, e)" />
+                                        @* <input class ="form-check-input me-2" type="checkbox" onchange="async (e) => await OnBillSelectionChanged(bill, e)"/> *@
                                         @bill.Date.ToString("MM/dd/yyyy") - @bill.Amount.ToString("F2")
                                     </label>
                                 </li>
@@ -43,17 +45,51 @@
                     }
                 </div>
             </div>
-            <div class="mx-auto">
-                <h2>Selected Bills:</h2>
-                <ul class="list-group">
-                    @foreach (var bill in Bills.Where(b => b.IsSelected))
-                    {
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @bill.Date.ToString("MM/dd/yyyy")
-                            <span class="badge bg-primary rounded-pill">₱@bill.Amount.ToString("F2")</span>
-                        </li>
-                    }
-                </ul>
+            <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="fw-bold">Balance:</span>
+                    <span>1,000,000.00</span>
+                </div>
+                <div class="text-end small mb-3">Due Date: 10/14/2024</div>
+
+                <div class="dropdown mb-3">
+                    <button class="btn btn-outline-secondary dropdown-toggle w-100 d-flex justify-content-between align-items-center" type="button" id="billDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select Bills
+                        <span id="totalAmount">₱ 0.00</span>
+                    </button>
+                    <ul class="dropdown-menu w-100" aria-labelledby="billDropdown">
+                        @foreach (var bill in Bills)
+                        {
+                            <li>
+                                <a class="dropdown-item">
+                                    <div class="form-check d-flex justify-content-between">
+                                        <input class="form-check-input bill-checkbox" type="checkbox">
+                                        <label class="form-check-label flex-grow-1 ms-2" for="electricityBill">@bill.Date.ToString("MM/dd/yyyy")</label>
+                                        <span>₱@bill.Amount.ToString("F2")</span>
+                                    </div>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Selected Bills:</h5>
+                        <ul id="selectedBillsList" class="list-group list-group-flush">
+                            @foreach (var bill in Bills.Where(b => b.IsSelected))
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    @bill.Date.ToString("MM/dd/yyyy")
+                                    <span class="badge bg-primary rounded-pill">₱@bill.Amount.ToString("F2")</span>
+                                </li>
+                            }
+                            @if (!HasSelectedBills)
+                            {
+                                <li class="list-group-item text-muted">No bills selected</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -79,25 +115,10 @@
     </div>
 </div>
 
-<div class="payment-machine mb-3">
-    <h5 class="text-center mb-3">Payment Machine</h5>
-    <div class="money-slot"></div>
-    <div id="paymentDisplay" class="display mb-2 text-center">₱ 0.00</div>
-    <div class="d-flex justify-content-center">
-        <button id="insertCashBtn" class="btn btn-sm btn-outline-secondary"><i class="fas fa-money-bill-wave"></i> Insert Cash</button>
-        <button id="insertCardBtn" class="btn btn-sm btn-outline-secondary"><i class="fas fa-credit-card"></i> Insert Card</button>
-    </div>
-</div>
-
-
-        
-
-
 <!-- Loading Modal -->
 @if (isLoading)
 {
-    <div class="modal fade" id="loadingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-         aria-labelledby="loadingModalLabel" aria-hidden="true">
+    <div class="modal fade show" style="display: block; background-color: rgba(0,0,0,0.5);" aria-modal="true" role="dialog">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body text-center">
@@ -130,7 +151,6 @@
     </div>
 }
 
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -150,6 +170,7 @@
         // Initialize with sample bills
         Bills.Add(new Bill { Date = DateTime.Now.AddDays(-30), Amount = 1325.00m });
         Bills.Add(new Bill { Date = DateTime.Now, Amount = 1455.00m });
+        UpdateTotal();
     }
     private void ToggleDropdown()
     {
@@ -159,19 +180,17 @@
     private void UpdateTotal()
     {
         Total = Bills.Where(b => b.IsSelected).Sum(b => b.Amount);
-        StateHasChanged();
     }
     private async Task ProcessPayment()
     {
         isLoading = true;
-        StateHasChanged();
 
         //delay
-        await Task.Delay(2000); 
+        await Task.Delay(2000);
 
         isLoading = false;
         showReceipt = true;
-        StateHasChanged();
+        await PrintReceipt();
     }
 
     private void CloseReceipt()
@@ -188,18 +207,23 @@
     {
         showReceipt = false;
         isLoading = true;
-        StateHasChanged();
 
-        await Task.Delay(2000); // Simulate printing time
+        await Task.Delay(2000);
 
         isLoading = false;
-        StateHasChanged();
 
         await JSRuntime.InvokeVoidAsync("alert", "Receipt printed successfully!");
+    }
+    private async Task OnBillSelectionChanged(Bill bill, ChangeEventArgs e)
+    {
+        bill.IsSelected = (bool)e.Value;
+        UpdateTotal();
+        await InvokeAsync(StateHasChanged);
     }
 
     private void NavigateBack()
     {
+        NavigationManager.NavigateTo("/");
     }
 
     private class Bill
@@ -209,6 +233,6 @@
         public bool IsSelected { get; set; }
     }
 }
-    
+
 
 
