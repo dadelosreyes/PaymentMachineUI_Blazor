@@ -3,8 +3,12 @@
 @rendermode InteractiveServer
 @inject IJSRuntime JSRuntime
 
-<header class="d-flex align-items-center justify-content-center">
-    <div class="text-center bg-opacity-100 d-flex align-items-center mb-5">
+<div class="position-fixed top-0 start-0 w-100 h-100" style="z-index: 0;" @onclick="@(() => isDropdownOpen = false)">
+</div>
+
+
+<header class="d-flex align-items-center justify-content-center" style="z-index: 1;">
+    <div class="text-center bg-opacity-100 d-flex align-items-center ">
         <img src="/assets/logo.png" alt="Zameco Logo" class="me-3"
              style="width: 60px; height: auto; margin-top: 40px;">
         <div>
@@ -14,95 +18,76 @@
     </div>
 </header>
 
-<div class="container">
-    <div class="d-flex align-items-start" style="font-weight: bold; font-size: 30px; color: rgba(0, 0, 0, 0.527);">
-        <div class="">Total Amount to pay:</div>
-        <div class="align-items-center">₱@Total.ToString("F2")</div>
-    </div>
 
-    <div class="container">
-        <div class="align-items-start justify-content-between">
-            <div class="">
-                <h5>Bill Payment Selection</h5>
-                <div class="dropdown">
-                    <button class=" btn btn-outline-secondary dropdown-toggle w-100 d-flex align-items-center m-3" @onclick="ToggleDropdown" style="font-size: 15px;">
-                        Select Bills to Pay
-                    </button>
-                    @if (isDropdownOpen)
-                    {
-                        <ul class="dropdown-menu show text-center w-100" style="font-size: 20px;">
-                            @foreach (var bill in Bills)
-                            {
-                                <li>
-                                    <label class="dropdown-item">
-                                        <input class="form-check-input me-2" type="checkbox" checked="@bill.IsSelected" @onchange="async (e) => await OnBillSelectionChanged(bill, e)" />
-                                        @* <input class ="form-check-input me-2" type="checkbox" onchange="async (e) => await OnBillSelectionChanged(bill, e)"/> *@
-                                        @bill.Date.ToString("MM/dd/yyyy") - @bill.Amount.ToString("F2")
-                                    </label>
-                                </li>
-                            }
-                        </ul>
-                    }
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="d-flex justify-content-between mb-2">
-                    <span class="fw-bold">Balance:</span>
-                    <span>1,000,000.00</span>
-                </div>
-                <div class="text-end small mb-3">Due Date: 10/14/2024</div>
+<div class="container" style="z-index: 1;">
+   
 
-                <div class="dropdown mb-3">
-                    <button class="btn btn-outline-secondary dropdown-toggle w-100 d-flex justify-content-between align-items-center" type="button" id="billDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        Select Bills
-                        <span id="totalAmount">₱ 0.00</span>
-                    </button>
-                    <ul class="dropdown-menu w-100" aria-labelledby="billDropdown">
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="dropdown">
+                <button class=" d-flex justify-content-between align-items-center btn btn-warning w-100 fs-2 " 
+                @onclick="ToggleDropdown"
+                @onclick:stopPropagation 
+                style="font-size: 15px;">
+                    <div class="align-items-start">Click here to select bill:</div>
+                    <div class="align-items-end">₱@Total.ToString("F2")</div>
+                </button>
+                @if (isDropdownOpen)
+                {
+                    <ul class="dropdown-menu show w-100 mt-2"
+                        @onclick:stopPropagation
+                        style="font-size: 20px;">
                         @foreach (var bill in Bills)
                         {
                             <li>
-                                <a class="dropdown-item">
-                                    <div class="form-check d-flex justify-content-between">
-                                        <input class="form-check-input bill-checkbox" type="checkbox">
-                                        <label class="form-check-label flex-grow-1 ms-2" for="electricityBill">@bill.Date.ToString("MM/dd/yyyy")</label>
-                                        <span>₱@bill.Amount.ToString("F2")</span>
-                                    </div>
-                                </a>
+                                <label class="dropdown-item d-flex align-items-center justify-content-between">
+                                    <input class="form-check-input" type="checkbox" value="@bill.Amount"
+                                           checked="@bill.IsSelected"
+                                           onfocus="ToggleDropdown"
+                                           onfocusout="ToggleDropdown"  
+                                           @onchange="async (e) => await OnBillSelectionChanged(bill, e)"
+                                           data-bill-name="@bill.Date.ToString("MM/dd/yyyy")">@bill.Date.ToString("MM/dd/yyyy")
+                                    <span class="align-items-end">₱@bill.Amount.ToString("F2")</span>
+                                </label>
                             </li>
                         }
                     </ul>
-                </div>
-                <div class="mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Selected Bills:</h5>
-                        <ul id="selectedBillsList" class="list-group list-group-flush">
-                            @foreach (var bill in Bills.Where(b => b.IsSelected))
-                            {
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    @bill.Date.ToString("MM/dd/yyyy")
-                                    <span class="badge bg-primary rounded-pill">₱@bill.Amount.ToString("F2")</span>
-                                </li>
-                            }
-                            @if (!HasSelectedBills)
-                            {
-                                <li class="list-group-item text-muted">No bills selected</li>
-                            }
-                        </ul>
-                    </div>
-                </div>
+                }
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Selected Bills:</h5>
+                <ul id="selectedBillsList" class="list-group list-group-flush">
+                    @foreach (var bill in Bills.Where(b => b.IsSelected))
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            @bill.Date.ToString("MM/dd/yyyy")
+                            <span class="">₱@bill.Amount.ToString("F2")</span>
+                        </li>
+                    }
+                    @if (!HasSelectedBills)
+                    {
+                        <li class="list-group-item text-muted">No bills selected</li>
+                    }
+                    <li class="list-group-item d-flex justify-content-between align-items-center fs-4">
+                        Total:
+                        <span class=" fs-4 badge bg-success">@Total.ToString("F2")</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <div class="container mt-3 d-flex justify-content-center">
-        <div class="rounded p-4 mx-2 text-center"
-             style="background-color: #fff; box-shadow: 10px 10px 5px pink;">
+    <div class="card mb-4">
+        <div class="card-body rounded text-center"
+             style="background-color: #fff; /* box-shadow: 10px 10px 5px pink; */">
             <h3 style="color: rgba(0, 0, 0, 0.527);">Please insert your payment</h3>
             <h1>Total amount inserted <br> ₱ @AmountInserted.ToString("F2") </h1>
         </div>
     </div>
 
-    <div class="row justify-content-between" style="margin-top: 20px;">
+    <div class="row justify-content-between mt-3">
         <div class="col-auto">
             <button type="button" class="btn btn-dark" style="font-size: 20px;" @onclick="NavigateBack">Back</button>
         </div>
@@ -113,6 +98,8 @@
             </button>
         </div>
     </div>
+
+   
 </div>
 
 <!-- Loading Modal -->
@@ -141,7 +128,7 @@
                     <h5 class="modal-title" id="errorModalLabel">Error</h5>
                 </div>
                 <div class="modal-body">
-                    <p id="errorMessage">An error occurred.</p>
+                    <p id="errorMessage">@ErrorMessage.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -151,69 +138,71 @@
     </div>
 }
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 @code {
-    private bool showLoadingModal = false;
-    private bool showErrorModal = false;
-    private List<Bill> Bills { get; set; } = new List<Bill>();
-    private decimal Total { get; set; } = 0;
-    private decimal AmountInserted { get; set; } = 0;
-    private bool isDropdownOpen { get; set; } = false;
-    private bool isLoading { get; set; } = false;
-    private bool showReceipt { get; set; } = false;
+    private List<Bill> Bills { get; set; } = new();
+    private decimal Total { get; set; }
+    private decimal AmountInserted { get; set; }
+    private bool isDropdownOpen;
+    private bool isLoading;
+    private bool showErrorModal;
+    private string ErrorMessage = "An error occurred while processing your request.";
+    private DateTime DueDate = DateTime.Now.AddDays(14);
+
     private bool HasSelectedBills => Bills.Any(b => b.IsSelected);
+    private bool CanProceed => HasSelectedBills && AmountInserted >= Total;
 
     protected override void OnInitialized()
     {
-        // Initialize with sample bills
-        Bills.Add(new Bill { Date = DateTime.Now.AddDays(-30), Amount = 1325.00m });
-        Bills.Add(new Bill { Date = DateTime.Now, Amount = 1455.00m });
-        UpdateTotal();
+        Bills = new List<Bill>
+        {
+            new() { Date = DateTime.Now.AddDays(-30), Amount = 1325.00m },
+            new() { Date = DateTime.Now, Amount = 1455.00m }
+        };
     }
+
     private void ToggleDropdown()
     {
         isDropdownOpen = !isDropdownOpen;
+        StateHasChanged();
     }
 
-    private void UpdateTotal()
-    {
+    private void UpdateTotal() =>
         Total = Bills.Where(b => b.IsSelected).Sum(b => b.Amount);
-    }
+
     private async Task ProcessPayment()
     {
-        isLoading = true;
-
-        //delay
-        await Task.Delay(2000);
-
-        isLoading = false;
-        showReceipt = true;
-        await PrintReceipt();
-    }
-
-    private void CloseReceipt()
-    {
-        showReceipt = false;
-        foreach (var bill in Bills)
+        try
         {
-            bill.IsSelected = false;
+            isLoading = true;
+            await Task.Delay(2000); // Simulate processing
+            await PrintReceipt();
+            ResetForm();
         }
-        UpdateTotal();
+        catch (Exception ex)
+        {
+            ErrorMessage = "Failed to process payment. Please try again.";
+            showErrorModal = true;
+        }
+        finally
+        {
+            isLoading = false;
+        }
     }
 
     private async Task PrintReceipt()
     {
-        showReceipt = false;
-        isLoading = true;
-
-        await Task.Delay(2000);
-
-        isLoading = false;
-
-        await JSRuntime.InvokeVoidAsync("alert", "Receipt printed successfully!");
+        try
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Receipt printed successfully!");
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = "Failed to print receipt. Please try again.";
+            showErrorModal = true;
+        }
     }
+
     private async Task OnBillSelectionChanged(Bill bill, ChangeEventArgs e)
     {
         bill.IsSelected = (bool)e.Value;
@@ -221,9 +210,19 @@
         await InvokeAsync(StateHasChanged);
     }
 
-    private void NavigateBack()
+    private void NavigateBack() => NavigationManager.NavigateTo("/");
+
+    private void CloseErrorModal() => showErrorModal = false;
+
+    private void ResetForm()
     {
-        NavigationManager.NavigateTo("/");
+        foreach (var bill in Bills)
+        {
+            bill.IsSelected = false;
+        }
+        AmountInserted = 0;
+        Total = 0;
+        StateHasChanged();
     }
 
     private class Bill
