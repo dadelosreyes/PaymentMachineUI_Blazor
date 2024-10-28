@@ -1,31 +1,31 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp3.bundle.scp.css",
+      "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp3.bundle.scp.css",
       "PackagePath": "staticwebassets\\BlazorApp3.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\wwwroot\\app.css",
+      "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\wwwroot\\assets\\Paybill.png",
+      "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\Paybill.png",
       "PackagePath": "staticwebassets\\assets\\Paybill.png"
     },
     {
-      "Id": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\wwwroot\\assets\\logo.png",
+      "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\logo.png",
       "PackagePath": "staticwebassets\\assets\\logo.png"
     },
     {
-      "Id": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {

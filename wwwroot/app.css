@@ -1,6 +1,8 @@
 html, body {
     font-family: 'Roboto', sans-serif;
-    background-color: #ffe6e6b6 !important;
+    
+    background: rgb(121,9,9) !important;
+    background: linear-gradient(180deg, rgba(121,9,9,1) 0%, rgba(121,9,9,0.9248074229691877) 29%, rgba(255,255,255,1) 100%) !important;
 }
 
 a, .btn-link {
@@ -93,3 +95,27 @@ div {
     backdrop-filter: blur(10px);
     border-radius: 15px;
 }
+
+.thank-you-box {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0.5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    margin: auto;
+}
+
+body, html {
+    height: 100%;
+}
+
+.full-height {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
