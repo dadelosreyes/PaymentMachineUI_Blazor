@@ -1,7 +1,13 @@
 html, body {
     font-family: 'Roboto', sans-serif;
-    background-color: #ffe6e6b6 !important;
-}
+        background-color: #ffe6e6b6 !important;
+/*    background: url(/assets/bg.png) ;
+    background-position:no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
 
 a, .btn-link {
     color: #006bb7;
@@ -44,6 +50,10 @@ h1:focus {
     outline: none;
 }
 
+h1:focus {
+    outline: none;
+}
+
 .invalid {
     outline: 1px solid #e50000;
 }
@@ -69,9 +79,7 @@ h1:focus {
     width: 50px;
     height: 50px;
 }
-div {
-    background: transparent;
-}
+
 
 
 :disabled {
@@ -90,6 +98,10 @@ div {
         transform: none !important;
         box-shadow: none !important;
     }
+    .card::before {
+        transform: none !important;
+        box-shadow: none !important;
+    }
 
 .card-link {
     color: inherit !important;
@@ -99,10 +111,6 @@ div {
 .card-link:hover, .card-link:focus {
     color: inherit !important;
 
-}
-
-.card-body {
-    cursor: pointer !important;
 }
 .content-area {
     background-color: rgba(255, 255, 255, 0.781);

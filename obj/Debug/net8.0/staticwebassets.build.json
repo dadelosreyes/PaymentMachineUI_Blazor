@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fqRX6eRdTR/JkvBd2Sb7ffKA3RiOzmCU5FdL1LWG8pk=",
+  "Hash": "PiWevcX+6ceahyOvjcsHhYCMBEH5296a3NiL/+RbGoo=",
   "Source": "BlazorApp3",
   "BasePath": "_content/BlazorApp3",
   "Mode": "Default",
@@ -243,6 +243,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.css"
+    },
+    {
+      "Identity": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\wwwroot\\assets\\bg.png",
+      "SourceId": "BlazorApp3",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\wwwroot\\",
+      "BasePath": "_content/BlazorApp3",
+      "RelativePath": "assets/bg.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\bg.png"
     },
     {
       "Identity": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\wwwroot\\assets\\logo.png",

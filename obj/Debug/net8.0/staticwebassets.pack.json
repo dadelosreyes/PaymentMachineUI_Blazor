@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\assets\\Paybill.png"
     },
     {
+      "Id": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\wwwroot\\assets\\bg.png",
+      "PackagePath": "staticwebassets\\assets\\bg.png"
+    },
+    {
       "Id": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\wwwroot\\assets\\logo.png",
       "PackagePath": "staticwebassets\\assets\\logo.png"
     },
