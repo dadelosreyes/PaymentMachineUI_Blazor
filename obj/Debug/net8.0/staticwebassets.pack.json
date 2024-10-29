@@ -9,8 +9,16 @@
       "PackagePath": "staticwebassets\\app.css"
     },
     {
+      "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\Logo-white.png",
+      "PackagePath": "staticwebassets\\assets\\Logo-white.png"
+    },
+    {
       "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\Paybill.png",
       "PackagePath": "staticwebassets\\assets\\Paybill.png"
+    },
+    {
+      "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\bg.jfif",
+      "PackagePath": "staticwebassets\\assets\\bg.jfif"
     },
     {
       "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\logo.png",

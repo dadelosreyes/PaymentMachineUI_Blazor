@@ -1,9 +1,41 @@
 html, body {
     font-family: 'Roboto', sans-serif;
-    
     background: rgb(121,9,9) !important;
     background: linear-gradient(180deg, rgba(121,9,9,1) 0%, rgba(121,9,9,0.9248074229691877) 29%, rgba(255,255,255,1) 100%) !important;
+    position: relative;
 }
+
+body::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-image: url('/assets/truck.png');
+    background-size: 400px; 
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 400px;
+    opacity: 0.8;
+    pointer-events: none; 
+}
+
+    body::before {
+        content: '';
+        position: absolute;
+        top: 30%;
+        right: 10px;
+        transform: translateY(-50%);
+        background-image: url('/assets/lineman.png');
+        background-size: 200px;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 300px;
+        opacity: 0.6;
+        pointer-events: none;
+        
+    }
+
+
 
 a, .btn-link {
     color: #006bb7;

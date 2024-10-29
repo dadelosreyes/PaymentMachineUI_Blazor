@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CE74F3F2-A62A-4687-A7D8-EBE9F42E1AFE}|BlazorApp3.csproj|c:\\users\\j_recaido\\documents\\github\\paymentmachineui_blazor\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{CE74F3F2-A62A-4687-A7D8-EBE9F42E1AFE}|BlazorApp3.csproj|solutionrelative:wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CE74F3F2-A62A-4687-A7D8-EBE9F42E1AFE}|BlazorApp3.csproj|c:\\users\\j_recaido\\documents\\github\\paymentmachineui_blazor\\components\\pages\\thanks.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CE74F3F2-A62A-4687-A7D8-EBE9F42E1AFE}|BlazorApp3.csproj|solutionrelative:components\\pages\\thanks.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -27,32 +31,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "app.css",
+              "DocumentMoniker": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\app.css",
+              "RelativeDocumentMoniker": "wwwroot\\app.css",
+              "ToolTip": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\app.css",
+              "RelativeToolTip": "wwwroot\\app.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-28T01:16:02.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Thanks.razor",
               "DocumentMoniker": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\Components\\Pages\\Thanks.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Thanks.razor",
-              "ToolTip": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\Components\\Pages\\Thanks.razor*",
-              "RelativeToolTip": "Components\\Pages\\Thanks.razor*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\Components\\Pages\\Thanks.razor",
+              "RelativeToolTip": "Components\\Pages\\Thanks.razor",
+              "ViewState": "AgIAABoAAAAAAAAAAAAmwCwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-28T00:30:25.681Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Laguage.razor",
               "DocumentMoniker": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\Components\\Pages\\Laguage.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Laguage.razor",
               "ToolTip": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\Components\\Pages\\Laguage.razor",
               "RelativeToolTip": "Components\\Pages\\Laguage.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-28T00:28:58.946Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Index.razor",
               "DocumentMoniker": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\Components\\Pages\\Index.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Index.razor",
@@ -60,8 +77,7 @@
               "RelativeToolTip": "Components\\Pages\\Index.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-28T00:24:55.976Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T00:24:55.976Z"
             }
           ]
         }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MtWWnEtGfIufPt+pEAU8FC6VY+3U/uCjs1hqfANOq4U=",
+  "Hash": "72Tp7LCuf/oeu5EsRVeugwTq8O9zl7W5IoMRCxyA4F4=",
   "Source": "BlazorApp3",
   "BasePath": "_content/BlazorApp3",
   "Mode": "Default",
@@ -245,6 +245,25 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
+      "Identity": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\bg.jfif",
+      "SourceId": "BlazorApp3",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\",
+      "BasePath": "_content/BlazorApp3",
+      "RelativePath": "assets/bg.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\bg.jfif"
+    },
+    {
       "Identity": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\logo.png",
       "SourceId": "BlazorApp3",
       "SourceType": "Discovered",
@@ -262,6 +281,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\Logo-white.png",
+      "SourceId": "BlazorApp3",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\",
+      "BasePath": "_content/BlazorApp3",
+      "RelativePath": "assets/Logo-white.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\Logo-white.png"
     },
     {
       "Identity": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\Paybill.png",
