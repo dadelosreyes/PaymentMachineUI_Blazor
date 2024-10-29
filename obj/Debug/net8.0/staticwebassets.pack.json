@@ -17,12 +17,16 @@
       "PackagePath": "staticwebassets\\assets\\Paybill.png"
     },
     {
-      "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\bg.jfif",
-      "PackagePath": "staticwebassets\\assets\\bg.jfif"
+      "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\lineman.png",
+      "PackagePath": "staticwebassets\\assets\\lineman.png"
     },
     {
       "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\logo.png",
       "PackagePath": "staticwebassets\\assets\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\truck.png",
+      "PackagePath": "staticwebassets\\assets\\truck.png"
     },
     {
       "Id": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\bootstrap\\bootstrap.min.css",

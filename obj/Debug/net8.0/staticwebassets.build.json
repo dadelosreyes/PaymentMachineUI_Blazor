@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "72Tp7LCuf/oeu5EsRVeugwTq8O9zl7W5IoMRCxyA4F4=",
+  "Hash": "GM3dIibbpxFr927+bxbLTOssqPTWaPLGumHa7Uc6QzY=",
   "Source": "BlazorApp3",
   "BasePath": "_content/BlazorApp3",
   "Mode": "Default",
@@ -245,12 +245,12 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\bg.jfif",
+      "Identity": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\lineman.png",
       "SourceId": "BlazorApp3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\",
       "BasePath": "_content/BlazorApp3",
-      "RelativePath": "assets/bg.jfif",
+      "RelativePath": "assets/lineman.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -261,7 +261,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\bg.jfif"
+      "OriginalItemSpec": "wwwroot\\assets\\lineman.png"
     },
     {
       "Identity": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\logo.png",
@@ -319,6 +319,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\Paybill.png"
+    },
+    {
+      "Identity": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\assets\\truck.png",
+      "SourceId": "BlazorApp3",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\",
+      "BasePath": "_content/BlazorApp3",
+      "RelativePath": "assets/truck.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\truck.png"
     },
     {
       "Identity": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\wwwroot\\bootstrap\\bootstrap.min.css",
