@@ -5,28 +5,25 @@
 
 <div @onclick="CloseDropdown">
 
-    <header class="d-flex align-items-center justify-content-center mb-5" style="z-index: 1;">
+    <header class="d-flex align-items-center justify-content-center mb-2">
         <div class="text-center bg-opacity-100 d-flex align-items-center ">
-            <img src="/assets/logo.png" alt="Zameco Logo" class="me-3 mt-2"
+            <img src="/assets/logo.png" alt="Zameco Logo" class=" "
                  style="width: 60px; height: auto;">
             <div class="">
-                <h1 class="mt-2" style="font-size: 25px; color: #DC0000">Z A M E C O II</h1>
+                <h1 class="pt-3" style="font-size: 25px; color: #DC0000">Z A M E C O II</h1>
                 <p style="color: #DC0000; font-size: 8px;" >ZAMBALES II ELECTRIC COOPERATIVE, INC.</p>
             </div>
         </div>
     </header>
 
 
-    <div class="container min-vh-100" style="z-index: 1;">
-
-
-        <div class="card mb-4">
+    <div class="container min-vh-100">
+        <div class="card mb-3">
             <div class="card-body">
                 <div class="dropdown">
                     <button class=" d-flex justify-content-between align-items-center btn btn-light btn-outline- w-100 fs-2 "
                             @onclick="ToggleDropdown"
-                            @onclick:stopPropagation
-                            style="font-size: 15px;">
+                            @onclick:stopPropagation>
                         <div class="align-items-start">
                             Select your bill here:
                             <i class="bi bi-caret-down-fill"></i>
@@ -56,11 +53,11 @@
                     }
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-2">
                 <div class="card bg-primary bg-opacity-10 m-3">
                     <div class="card-body ">
                         <h5 class="card-title ">Selected Bills:</h5>
-                        <ul id="selectedBillsList" class="card-body list-group list-group-numbered">
+                        <ul id="selectedBillsList" class="card-body list-group list-group-numbered p-1">
                             @foreach (var bill in Bills.Where(b => b.IsSelected))
                             {
                                 <li class="list-group-item-success d-flex justify-content-between align-items-center">
@@ -72,9 +69,9 @@
                             {
                                 <li class="card-text list-group-item-success text-muted ">No bills selected</li>
                             } 
-                            <li class="list-group-item-info d-flex justify-content-between align-items-center fs-4">
+                            <li class="list-group-item-info d-flex justify-content-between align-items-center fs-5">
                                 Total:
-                                <span class=" fs-4 badge bg-primary">@Total.ToString("F2")</span>
+                                <span class=" fs-5 badge bg-primary">@Total.ToString("F2")</span>
                             </li>
                         </ul>
                     </div>
@@ -188,6 +185,7 @@
             await Task.Delay(2000); // Simulate processing
             await PrintReceipt();
             ResetForm();
+            NavigationManager.NavigateTo("/Thanks");
         }
         catch (Exception ex)
         {
