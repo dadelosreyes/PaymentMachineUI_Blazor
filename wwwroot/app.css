@@ -1,15 +1,8 @@
 html, body {
     font-family: 'Roboto', sans-serif;
-        background-color: #ffe6e6b6 !important;
-/*    background: url(/assets/bg.png) ;
-    background-position:no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-} */
-
-a, .btn-link {
+    background-color: #f0f2f5;
+    }
+    a, .btn-link {
     color: #006bb7;
     outline: none !important;
 }

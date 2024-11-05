@@ -1,17 +1,59 @@
 ﻿@page "/"
-@using System.Diagnostics
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content-area {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        padding: 2rem;
+    }
+
+    .logo {
+        max-width: 120px;
+        height: auto;
+    }
+
+    .btn-custom {
+        background-color: #DC0000;
+        border-color: #DC0000;
+        color: white;
+       
+    }
+
+    .text-custom {
+        color: #DC0000;
+    }
+</style>
 
 
-<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center">
-    <div class="text-center">
-        <div class="d-flex align-items-center justify-content-center mb-3">
-            <img src="/assets/logo.png" alt="ZAMECO II Logo" class="logo me-2">
-            <h1 class="text-danger mb-0">Z A M E C O II</h1>
-        </div>
-        <p class="text-danger small">ZAMBALES II ELECTRIC COOPERATIVE, INC.</p>
-        <div class="content-area p-4 mt-4">
-            <h1 class="text-danger mb-4">Welcome to Payment Machine</h1>
-            <a href="login"><button class="btn btn-danger">Click to Start</button></a>
+<div class="container-fluid min-vh-100 d-flex flex-column">
+    <div class="row flex-grow-1">
+        <div class="col-12 d-flex align-items-center justify-content-center">
+            <div class="content-area text-center">
+                <div class="d-flex align-items-center justify-content-center mb-4">
+                    <img src="/assets/logo.png" style="height:100px; width:100px;">
+                    <div>
+                        <h1 class="text-custom mb-0" style="font-size: 2.5rem;">Z A M E C O II</h1>
+                        <p class="text-custom small">ZAMBALES II ELECTRIC COOPERATIVE, INC.</p>
+                    </div>
+                </div>
+                <h2 class="text-custom mb-4">Welcome to Payment Machine</h2>
+                <a href="/Test" class="btn btn-custom btn-lg px-5 py-3">
+                    <i class="bi bi-lightning-charge-fill me-2"></i>Click to Start
+                </a>
+            </div>
         </div>
     </div>
 </div>
+    

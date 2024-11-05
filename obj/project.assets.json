@@ -675,23 +675,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\d_reyes\\.nuget\\packages\\": {},
+    "C:\\Users\\j_recaido\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\BlazorApp3.csproj",
+      "projectUniqueName": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\BlazorApp3.csproj",
       "projectName": "BlazorApp3",
-      "projectPath": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\BlazorApp3.csproj",
-      "packagesPath": "C:\\Users\\d_reyes\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\d_reyes\\source\\repos\\BlazorApp3\\obj\\",
+      "projectPath": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\BlazorApp3.csproj",
+      "packagesPath": "C:\\Users\\j_recaido\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\j_recaido\\Documents\\GitHub\\PaymentMachineUI_Blazor\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\d_reyes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\j_recaido\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
