@@ -55,7 +55,7 @@
                 <div class="login-container bg-white p-4 rounded rounded mx-auto">
                     <form>
                         <div class="mb-3">
-                            <input type="text" class="form-control form-control-lg text-end" @bind="accountNumber" placeholder="Account Number" required disabled>
+                            <input type="text" class="form-control form-control-lg text-end" @bind="accountNumber" placeholder="Account Number" >
                         </div>
                         <div id="numpad" class="text-center mb-3">
                             <div>
@@ -158,14 +158,13 @@
 
 @code {
     private string accountNumber = "";
-    private List<string> validAccountNumbers = new List<string> { "12345", "67890" };
+    private List<string> validAccountNumbers = new List<string> { "12345", "69420" };
     private bool showLoadingModal = false;
     private bool showInvalidUserModal = false;
 
     private void AppendNumber(int number)
     {
         accountNumber += number.ToString();
-        StateHasChanged();
     }
 
     private void Backspace()
