@@ -10,9 +10,11 @@ body {
     background: rgb(91,95,138);
     background: linear-gradient(321deg, rgba(91,95,138,0.8870259831460674) 0%, rgba(255,255,255,1) 100%);
 } 
-        
 
 a, .btn-link {
+    background-color: #f0f2f5;
+}
+    a, .btn-link {
     color: #006bb7;
     outline: none !important;
 }

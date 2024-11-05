@@ -4,7 +4,10 @@
 
 
 <style>
-    
+    body{
+        background-color: #f0f2f5;
+    }
+
     .login-container {
         max-width: 400px;
         background-color: rgba(255, 255, 255, 0.9);
@@ -14,32 +17,42 @@
         border: 1px solid rgba(255, 255, 255, 0.18);
         padding: 2rem;
     }
-  
+
     .numpad-btn {
         width: 60px;
         height: 60px;
         margin: 5px;
     }
 
-    .content-area {
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 20px;
-        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-        backdrop-filter: blur(4px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        padding: 2rem;
+    
+
+    .btn-custom {
+        background-color: #DC0000;
+        border-color: #DC0000;
+        color: white;
     }
+    .content-area {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 2rem;
+}
+
+
 </style>
 
 <body>
     <div class="container">
         <div class="row justify-content-center align-items-center min-vh-100">
             <div class="col-md-6 text-center mb-5">
-                <h1 class="fw-1 text-danger text-start">ZAMECO</h1>
-                <h2>Zambales Electric Cooperative :></h2>
+                <img src="/assets/logo.png" style="height:300px; width:300px;">
+                <h1 class="zam">ZAMECO II</h1>
+                <h2>Zambales II Electric Cooperative</h2>
             </div>
             <div class="col-md-6">
-                <div class="login-container p-4 rounded shadow mx-auto">
+                <div class="login-container bg-white p-4 rounded rounded mx-auto">
                     <form>
                         <div class="mb-3">
                             <input type="text" class="form-control form-control-lg text-end" @bind="accountNumber" placeholder="Account Number" required disabled>
@@ -102,8 +115,8 @@
                                 </button>
                             </div>
                         </div>
-                        <button type="button" @onclick="Proceed" class="btn btn-primary btn-lg w-100 fs-3">Proceed</button>
-                     
+                        <button type="button" @onclick="Proceed" class="btn btn-custom btn-lg w-100 mb-3">Proceed</button>
+
                     </form>
                 </div>
             </div>
