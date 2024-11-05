@@ -1,5 +1,7 @@
 html {
-
+    background: rgb(91,95,138);
+    background: linear-gradient(321deg, rgba(91,95,138,0.8870259831460674) 0%, rgba(255,255,255,1) 100%);
+    overflow: hidden;
 }
 
 body {
